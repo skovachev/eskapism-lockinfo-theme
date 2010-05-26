@@ -1,0 +1,29 @@
+ver. 1.2
+multiline menu
+fix multiline todo notes
+added support for multiple locales (swipe, tap on the weather div)
+add an action menu
+added option to refresh rss feeds
+added option to refresh weather
+
+
+Version 1.1.1
+
+    * Added option to center menu icons when the row is not full
+    * Added manual weather refresh when not using WeatherIcon (tap the weekly weather section to refresh)
+    * Fixed issue with notifications did not hide when cleared
+    * Fixed issue with missing weather icons
+    * Several smaller bug fixes and code optimizations
+
+Version 1.1
+
+    * Fixed reordering of menu items
+    * The user can switch between using custom configured weather and rss or activating the WeatherIcon and RSS Lockinfo plugins
+    * Option to separate RSS feeds added
+    * Tap on weather block instead of icon to show weekly weather
+    * Swipe left, right or tap on opened caledar to scroll through months or rss feeds (if separately displayed)
+    * Additional configuration options added when not using Lockinfo plugins for weather and rss
+    * Code restructured and optimized
+    * Restyled sms section
+    * Several minor bug fixes
+
