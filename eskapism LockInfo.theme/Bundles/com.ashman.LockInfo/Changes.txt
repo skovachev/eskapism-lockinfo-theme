@@ -8,6 +8,7 @@ added option to refresh weather
 implemented roundabout for menu
 optimized menu animation and logic
 small bug fixes
+implemented skins
 
 
 Version 1.1.1
