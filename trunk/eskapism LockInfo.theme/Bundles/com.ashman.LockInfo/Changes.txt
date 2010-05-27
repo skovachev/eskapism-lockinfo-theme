@@ -5,6 +5,9 @@ added support for multiple locales (swipe, tap on the weather div)
 add an action menu
 added option to refresh rss feeds
 added option to refresh weather
+implemented roundabout for menu
+optimized menu animation and logic
+small bug fixes
 
 
 Version 1.1.1

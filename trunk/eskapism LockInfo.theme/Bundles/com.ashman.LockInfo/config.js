@@ -94,13 +94,13 @@ var sectionsConfig = {
 // main styling file must be skin.css
 var skin = "default";
 
-// Number of items in the menu row - max is 5!
+// Number of items in the menu row - MAX IS 5!
 var itemsInMenuRowMax = 5;
 
 // Switch between showing 1 menu row and all menu rows at once
 // true - show all rows
 // false - show only one row
-var multirowMenu = true;
+var multirowMenu = false;
 
 // center the icons in the menu row if they are less than itemsInMenuRowMax
 var centerMenuItems = false;
