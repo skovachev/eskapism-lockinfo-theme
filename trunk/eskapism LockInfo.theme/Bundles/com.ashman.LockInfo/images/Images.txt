@@ -1,9 +1,0 @@
-Images for the complete UI:
-
-clock-bg.png	-	Background for clock section of the menu
-weather-bg.png	-	Background for weather section of the menu
-black-bg.png	-	Menu item list header background (RSS, Calls, etc.) (repeated)
-details-bg.png	-	Background for the weather weekly view and the month view (repeated)
-menu-bg.png	-	Background for the main menu (repeated)
-second-bg.png	-	Background for every second item of items lists (repeated)
-unread-bg.png	-	Badge for new items
