@@ -1,10 +1,10 @@
 function log(item){
 	if (debug){
-//		if (console && console.log){
-//			console.log(item);
-//		} else {
+		if ($.browser.mozilla && console && console.log){
+			console.log(item);
+		} else {
 			$("body").prepend(item+"; ");
-//		}
+		}
 	}
 	
 }
@@ -397,13 +397,19 @@ function setUpActionMenu(options){
 	
 	if (!useWeatherIcon){
 		$("#am-refresh-weather").touch($.extend({}, options, {
-		     tap: function(){ weatherRefresherTemp(); openActionMenu("right"); }
+		     tap: function(){ 
+				weatherRefresherTemp(); 
+				setTimeout(function(){ openActionMenu("right"); }, 300);
+			 }
 		})).show();
 	}
 	
 	if (!useRSSplugin){
 		$("#am-refresh-rss").touch($.extend({}, options, {
-		     tap: function(){ refreshRSS(); openActionMenu("right"); }
+		     tap: function(){ 
+				refreshRSS(); 
+				setTimeout(function(){ openActionMenu("right"); }, 300);
+			 }
 		})).show();
 	}
 	

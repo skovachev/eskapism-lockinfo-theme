@@ -74,7 +74,7 @@ $theme["init"] = function(){
 				menuRow = menuRow.find(".menu-row");
 			}
 			numberRows++;
-			itemsInRow = 0;
+			itemsInRow = 1;
 		}
 		if (numberRows>1){
 			$(".menu").addClass("middle-menu-row");
@@ -161,56 +161,40 @@ $theme["init"] = function(){
 			break;
 		}
 	}
-	menuRow.append(rowEndHtml);
 	
-	itemsInRow = 3;
-	addRowItem(i,"Notifications");
-	addRowItem(i,"Notifications");
-	addRowItem(i,"Notifications");
-	addRowItem(i,"Notifications");
-	addRowItem(i,"Notifications");
+	menuRow.append(rowEndHtml);	
 	
 	/* SETUP TAP AND SWIPE EVENTS */
 	
-	var currentRow = 1;
 	if (numberRows>1 && !multirowMenu){
-		// todo for arbitrary number of rows
-		// remove hidden rows and append to end / front
-		// instead of counting rows
-		$("#menu").touch($.extend(touchOptions, {
+
+		$(".menu").touch($.extend(touchOptions, {
+			 // FIFO with roundabout
 			 // goes to next row
 		     swipeRight: r = function() { 
-				if ($("#menu-items .menu-row").size() < 1) return;
-				var oldRowIndex = currentRow;
-				currentRow++;
-				if (currentRow >= $("#menu-items .menu-row").size()){
-					currentRow = 0;
+				if ($(".menu-items .menu-row").size() <= 1) return;
+				
+				var prevRow = $(".menu-row:visible").filter(":first");
+				var nextRow = prevRow.next(".menu-row");
+				if (!nextRow.size()){
+					nextRow = $(".menu-row:first").remove().insertAfter(".menu-row:last");
 				}
-				log ("swipeRight: "+oldRowIndex+" "+currentRow);
-				$("#menu").css("overflow","hidden");
-				var toShowRow = $("#menu-items .menu-row:nth-child("+(currentRow+1)+")").removeClass("hidden");
-				$("#menu-items").animate({"margin-top" : "-"+(currentRow*54)+"px"}, animationSpeed, function(){
-					var toHideRow = $("#menu-items .menu-row:nth-child("+(oldRowIndex+1)+")").addClass("hidden");
-					toShowRow.css({"margin-top":(currentRow*54)+"px"});
-					$("#menu").css("overflow","visible");
+				prevRow.hide("slide", { direction: "up" },animationSpeed, function(){
+					nextRow.removeClass("hidden").show("slide", { direction: "down" },animationSpeed);
 				});
 			 },
 			 // goes to previous row
-		     swipeLeft: l= function() {
-				 if ($("#menu-items .menu-row").size() < 1) return;
-				 var oldRowIndex = currentRow;
-				 currentRow--;
-				 if (currentRow < 0){
-					 currentRow = $("#menu-items .menu-row").size()-1;
+		     swipeLeft: l = function() {
+				 if ($(".menu-items .menu-row").size() <= 1) return;
+				 
+				 var prevRow = $(".menu-row:visible").filter(":first");
+				 var nextRow = prevRow.prev(".menu-row");
+				 if (!nextRow.size()){
+				 	nextRow = $(".menu-row:last").remove().insertBefore(".menu-row:first");
 				 }
-				 log ("swipeLeft: "+oldRowIndex+" "+currentRow);
-				 $("#menu").css("overflow","hidden");
-				 var toShowRow = $("#menu-items .menu-row:nth-child("+(currentRow+1)+")").removeClass("hidden");
-				 $("#menu-items").animate({"margin-top" : "-"+(currentRow*54)+"px"}, animationSpeed, function(){
-					var toHideRow = $("#menu-items .menu-row:nth-child("+(oldRowIndex+1)+")").addClass("hidden");
-					toShowRow.css({"margin-top":(currentRow*54)+"px"});
-					$("#menu").css("overflow","visible");
-				});
+				 prevRow.hide("slide", { direction: "down" },animationSpeed, function(){
+				 	nextRow.removeClass("hidden").show("slide", { direction: "up" },animationSpeed);
+				 });
 			 }
 		}));
 	}
