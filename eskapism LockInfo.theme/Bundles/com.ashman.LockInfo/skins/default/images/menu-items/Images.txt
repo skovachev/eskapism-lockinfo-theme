@@ -1,0 +1,18 @@
+Images for list items - appear before each item (names are selfexplainatory):
+
+allday_event.png
+birthday_cake.png
+event.png
+mail.png
+notification.png
+phone.png
+prio1.png
+prio2.png
+prio3.png
+prio4.png
+rss.png
+sms.png
+twitter.png
+voicemail.png
+
+Size should be 16x16.
