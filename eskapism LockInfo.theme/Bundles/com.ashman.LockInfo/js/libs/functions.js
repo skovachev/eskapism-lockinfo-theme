@@ -322,12 +322,6 @@ function swipeMainMenu(direction, options){
 	
 	// if weather is swiped
 	if (options['element'] == "weather") {
-		/* TODO refresh another way
-		if (!useWeatherIcon){
-			weatherRefresherTemp();
-		}
-		return;
-		*/
 		if (direction == "left"){
 			currentCityIndex++;
 			if (currentCityIndex>=postalIdx.length) currentCityIndex = 0;

@@ -1,6 +1,5 @@
 body {
-	font-family: HebarU, Arial, sans-serif;
-	color: #fff;
+	
 }
 
 #background {
@@ -25,8 +24,6 @@ body, div, h1, h2, h3, h4 {
 }
 
 h1, h2, h3, h4 {
-	color: #98d153;
-	text-align: center;
 	background: url(../images/black-bg.png);
 	margin-bottom: 5px;
 }
@@ -63,16 +60,14 @@ div#notifications {
 }
 
 div.notification {
-	background: #0080BF;
 	height:24px;
-	border-bottom: 1px solid #003F5F;
-	border-top:1px solid #2CAEEF;
-	/*margin-top: -24px;*/
+	border-bottom: 1px solid;
+	border-top:1px solid;
 	opacity: 0.7;
 }
 
 div.notification.second {
-	background: #00A0EF;
+	
 }
 
 div.notification div {
@@ -91,6 +86,7 @@ div.notification div {
 	background: url(../images/menu-items/twitter.png) no-repeat -2px 50%;
 }
 
+/* TODO add theming support */
 #action-menu {
 	background: rgba(0,0,0,0.5);
 	display:none;
@@ -99,6 +95,7 @@ div.notification div {
 	width:315px;
 }
 
+/* TODO add theming support */
 #action-menu div.action {
 	background:rgba(0, 0, 0, 0.35);
 	float:left;
@@ -115,6 +112,7 @@ div.notification div {
 	border-left: 1px solid rgba(255,255,255,0.5);
 }
 
+/* TODO add theming support */
 #action-menu div.action img {
 	float:left;
 	margin-left:10px;
@@ -125,6 +123,7 @@ div.notification div {
 	margin: 0 auto;
 }
 
+/* TODO add theming support */
 #action-menu div.action span {
 	display:block;
 	float:left;
@@ -138,20 +137,18 @@ div.notification div {
 }
 
 div.menu, div#clock-weather {
-	border-bottom: 1px solid black;
-	border-top: 1px solid #555;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 }
 
-div.middle-menu-row { border-top: 1px solid rgba(85,85,85,0.5); border-bottom: 1px solid rgba(0,0,0,0.5);  }
-div.first-menu-row { border-bottom: 1px solid rgba(0,0,0,0.5);  }
-div.last-menu-row { border-top: 1px solid rgba(85,85,85,0.5); }
+div.middle-menu-row { border-top: 1px solid; border-bottom: 1px solid;  }
+div.first-menu-row { border-bottom: 1px solid;  }
+div.last-menu-row { border-top: 1px solid; }
 
 div#clock-calendar-month-name {
-	background: rgba(99, 199, 255, 0.5);
 	padding: 2px 0px 2px 0px;
 	margin-top: -5px;
 	font-weight: bold;
-	text-align: center;
 }
 
 div#clock, div#weather {
@@ -233,18 +230,16 @@ div#clock-details, div#weather-details {
 }
 
 div.clock-inner td.today  {
-	background-color:rgba(95,198,255,0.70);
 	-webkit-border-radius:4px;
 	-webkit-box-shadow:0px 1px 3px rgba(0, 0, 0, 0.25);
 	text-shadow:rgba(0, 0, 0, 0.6) 0px -1px 1px !important;
 }
 div.clock-inner .otherMonth {
 	font-weight:normal;
-	color:#CCFF33;
 }
 
 div.clock-inner .thisMonth {
-	color:#fff;
+
 }
 
 div#clock-details {
@@ -282,11 +277,11 @@ div.clock-inner #Month th {
 div#clock-weather-details .fhilo {}
 
 div#clock-weather-details .high {
-	color: #ffb;
+
 }
 
 div#clock-weather-details .low {
-	color: #bff;
+
 }
 
 div#clock-weather-details .fdesc {
@@ -324,7 +319,6 @@ div.menu .menu-item {
 	margin: 0 auto;
 }
 .menu-row.hidden {
-	/*visibility: hidden;*/
 	display:none;
 }
 
@@ -394,24 +388,13 @@ div.todo-item {
 
 div.todo-item-time {
 	font-size:0.7em;
-	color: #63c7ff;
 	padding: 0px 5px;
-}
-
-div.priority {
-	color:white;
-	float:left;
-	font-size:0.7em;
-	margin:2px 4px 2px 0;
-	opacity:0.7;
-	padding:0 5px 1px;
-	text-align:center;
-	-webkit-border-radius:2px;
 }
 
 div.todo-item-content {
 	
 }
+
 span.todo-name, span.rss-title, span.calendar-title, div#menu-details table span.name, span.mail-subject, span.sms-sender, .twitter-author {
 	text-shadow:1px 1px 3px #222;
 	font-weight: bold;
@@ -508,11 +491,10 @@ div#menu-details table span.label,
 div#menu-details span.calendar-cal,
 div#menu-details span.twitter-author-name,
 div#clock-weather-details .fday,
-div.clock-inner #Month th,
+div#clock-weather-details-inner #Month th,
 div#menu-details span.mail-acc{
 	font-size: 0.85em;
 	font-variant: small-caps;
-	color: #c4c4c4;
 }
 
 div.menu-detail {
@@ -520,7 +502,7 @@ div.menu-detail {
 }
 
 div#menu-detail {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid;
 	display: none;
 }
 
@@ -571,7 +553,7 @@ div#calendar-detail {
 }
 
 .calendar-time {
-	color: #63c7ff;
+
 }
 
 .calendar-cal {
@@ -579,7 +561,7 @@ div#calendar-detail {
 }
 
 .calendar-location {
-	color: #98D153;
+	
 }
 
 div#todo-detail {
@@ -615,60 +597,7 @@ div#twitter-detail {
 
 /* Weather */
 #weather_timestamp {
-	font-weight:normal;
-	font-size: 0.7em;
-	color: #ddd;
 	display: none;
-}
-
-#weather_timestamp.refresh {
-padding:2px 20px 2px 0 !important;
-background-image:url(../images/refresh.png);
-background-repeat: no-repeat;
-background-position:right center;
-min-height:18px;
-}
-
-div.weather-inner #weather_timestamp {
-float:right;
-padding-right:8px;
-}
-
-div.weather-inner .header.weather {
-text-align:left;
-}
-
-#forecast_header.weather img {
-padding-left:5px;
-}
-
-.header.weather #weather_timestamp.refresh {
-padding:0 20px 0 0 !important;
-}
-
-div.weather-inner .temp {
-margin-top: -3px;
-}
-
-div.weather-inner .city {
-padding-left:2px;
-}
-
-div.weather-inner {
-padding:0 15px;
-}
-
-div.weather-inner table {
-width:100%;
-}
-
-div.weather-inner td {
-vertical-align:top;
-text-align:center;
-}
-
-div.weather-inner td img {
-height:30px;
 }
 
 .capitalize{
@@ -676,15 +605,15 @@ text-transform:capitalize;
 }
 
 .color1 { /* light blue */
-	color: #63c7ff !important;
+	
 }
 
 .color2 { /* light green */
-	color: #98D153 !important;
+	
 }
 
 .color3 { /* light orange */
-	color: #ffbb55 !important;
+
 }
 
 

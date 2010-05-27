@@ -1,0 +1,153 @@
+/* Main style file for the default skin
+ * 
+ * TODO instruction on changing color, family, align
+ */
+
+body {
+	/* font settings for the whole theme */
+	font-family: HebarU, Arial, sans-serif;
+	color: #fff;
+}
+
+h1, h2, h3, h4 {
+	/* header settings */
+	color: #98d153;
+	text-align: center;
+}
+
+div.notification {
+	/* top notification settings */
+	background: #0080BF;
+	border-bottom-color: #003F5F;
+	border-top-color: #2CAEEF;
+}
+
+div.notification.second {
+	/* alternating top notification settings */
+	background: #00A0EF;
+}
+
+div.menu, div#clock-weather {
+	/* border settings for the clock/weather and main menus */
+	border-bottom-color: black;
+	border-top-color: #555;
+}
+
+div.middle-menu-row { 
+    /* settings for the middle menu row borders (if all rows are shown) */
+	border-top-color: rgba(85,85,85,0.5); 
+	border-bottom-color: rgba(0,0,0,0.5);  
+}
+div.first-menu-row { 
+	/* settings for the first menu row borders (if all rows are shown) */
+	border-bottom-color: rgba(0,0,0,0.5);  
+}
+div.last-menu-row { 
+	/* settings for the last menu row borders (if all rows are shown) */
+	border-top-color: rgba(85,85,85,0.5); 
+}
+
+div#clock-calendar-month-name {
+	/* settings for the month name header in the month block */
+	background: rgba(99, 199, 255, 0.5);
+	text-align: center;
+}
+
+div#time {
+	/* settings for the time display */
+	color: auto !important; /* replace 'auto' with color */
+}
+
+div#weather-info #weather-text {
+	/* settings for the weather description */
+	color: auto; /* replace 'auto' with color */
+}
+
+div#weather-info #weather-city {
+	/* settings for the city */
+	color: auto; /* replace 'auto' with color */
+}
+
+div.clock-inner td.today  {
+	/* settings for the today marker on the calendar */
+	background-color:rgba(95,198,255,0.70);
+}
+
+div.clock-inner .otherMonth {
+	/* settings for the days of the other (not currently selected) months */
+	color:#CCFF33;
+}
+
+div.clock-inner .thisMonth {
+	/* settings for the days of the currently selected month */
+	color:#fff;
+}
+
+div#clock-weather-details .high {
+	/* settings for the highest daily temp */
+	color: #ffb;
+}
+
+div#clock-weather-details .low {
+	/* settings for the lowest daily temp */
+	color: #bff;
+}
+
+div.todo-item-time {
+	/* time section of the todo item list */
+	color: #63c7ff;
+}
+
+span.todo-name, span.rss-title, span.calendar-title, div#menu-details table span.name, span.mail-subject, span.sms-sender, .twitter-author {
+	/* titles of items in lists (e.g. todo items, calendar items) */
+	color: auto;
+}
+
+div#menu-details table span.ampm, 
+div#menu-details table span.label, 
+div#menu-details span.calendar-cal,
+div#menu-details span.twitter-author-name,
+div#clock-weather-details .fday,
+div#clock-weather-details-inner #Month th,
+div#menu-details span.mail-acc{
+	/* settings for the the following sections of list items:
+	 * calls relative time, calendar name, tweet author name, weather day of week, eMail account name, calendar day of the week
+	 */
+	color: #c4c4c4;
+}
+
+div#menu-detail {
+	/* block containing menu items lists */
+	border-bottom-color: black;
+}
+
+.calendar-time {
+	/* calendar list item time (in the parenthesis) */
+	color: #63c7ff;
+}
+
+.calendar-location {
+	/* calendar list item location */
+	color: #98D153;
+}
+
+/* settings for color groups have the highest priority */
+
+.color1 { 
+	/* color group 1, includes: 
+	 * missed call time, sms time, mail time, push notification time, rss time */
+	color: #63c7ff !important;
+}
+
+.color2 { 
+	/* color group 2, includes:
+	 * today's date, today's temperature, phone type (mobile/home), sms sender, mail sender, push notification source application, rss channel name,   */
+	color: #98D153 !important;
+}
+
+.color3 { 
+	/* color group 3, includes:
+	 * calendar list item date */
+	color: #ffbb55 !important; 
+}
+
