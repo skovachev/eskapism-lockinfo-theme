@@ -75,7 +75,7 @@
 		return this.each(function() {
 			
 			var me = $(this);
-			me.get(0).onclick = function(event){
+			me.get(0).ontouchstart = function(event){
 				iTouch(event, me, options);
 			};
 				
