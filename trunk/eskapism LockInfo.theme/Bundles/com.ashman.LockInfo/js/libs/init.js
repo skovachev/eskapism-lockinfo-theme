@@ -7,8 +7,8 @@ $theme["init"] = function(){
 	root.append(notificationsHtml);
 	
 	var actionMenuHtml = '';
-	actionMenuHtml += "<div id='am-refresh-weather' class='action' style='display:none;'><img src='images/action-menu/refresh_weather.png' /><span>refresh weather</span></div>";
-	actionMenuHtml += "<div id='am-refresh-rss' class='action' style='display:none;'><img src='images/action-menu/refresh_rss.png' /><span>refresh rss</span></div>";
+	actionMenuHtml += "<div id='am-refresh-weather' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_weather.png' /><span>refresh weather</span></div>";
+	actionMenuHtml += "<div id='am-refresh-rss' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_rss.png' /><span>refresh rss</span></div>";
 	
 	var clockWeatherHtml = '';
 	clockWeatherHtml += '<div id="clock-weather">';
@@ -64,7 +64,7 @@ $theme["init"] = function(){
 		var id = sectionId;
 		var menuName = menuNames[sections[i].name];
 		var number = itemsInRow++;
-		var html = '<div id="'+id+'" class="menu-item"><img src="images/menu/'+imageName+'.png" /><div class="unread">0</div></div>';
+		var html = '<div id="'+id+'" class="menu-item"><img src="skins/'+skin+'/images/menu/'+imageName+'.png" /><div class="unread">0</div></div>';
 		if (number >= itemsInMenuRowMax){
 			menuRow.append(rowEndHtml);
 			if (!multirowMenu){
@@ -221,4 +221,9 @@ $theme["init"] = function(){
 	if (!useWeatherIcon){
 		setTimeout(updateWeatherCustom, 100); // weatherUpdateInterval minutes
 	}
+	
+	// load skin
+	$("head").append("<link type='text/css' rel='stylesheet' href='skins/default/skin.css' />"); // load default skin
+	$("head").append("<link type='text/css' rel='stylesheet' href='skins/"+skin+"/skin.css' />"); // load selected skin
+	finalizeSkinImages(skin);
 }

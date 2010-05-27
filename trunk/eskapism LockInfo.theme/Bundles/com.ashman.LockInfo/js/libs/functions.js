@@ -490,3 +490,35 @@ function updateView(bundleIdentifier, data){
 	}
 	return false;
 }
+
+function finalizeSkinImages(skin){
+	var styledObjects = {
+			"h1, h2, h3, h4" : "background: url(skins/"+skin+"/images/black-bg.png);",
+			".push-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/notification.png) no-repeat 0px 50%;",
+			".twitter-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/twitter.png) no-repeat -2px 50%;",
+			"div#clock" : "background: url(skins/"+skin+"/images/clock-bg.png) no-repeat;",
+			"div#weather" : "background: url(skins/"+skin+"/images/weather-bg.png) no-repeat;",
+			"div#clock-weather-wrapper" : "background: url(skins/"+skin+"/images/details-bg.png);",
+			"div.menu" : "background: url(skins/"+skin+"/images/menu-bg.png);",
+			"div.menu .menu-item .unread" : "background: url(skins/"+skin+"/images/unread-bg.png) no-repeat;",
+			".todo-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/prio4.png) no-repeat 0px 50%;",
+			".todo-item.prio3 .image-holder" : "background: url(skins/"+skin+"/images/menu-items/prio3.png) no-repeat 0px 50%;",
+			".todo-item.prio2 .image-holder" : "background: url(skins/"+skin+"/images/menu-items/prio2.png) no-repeat 0px 50%;",
+			".todo-item.prio1 .image-holder" : "background: url(skins/"+skin+"/images/menu-items/prio1.png) no-repeat 0px 50%;",
+			".rss-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/rss.png) no-repeat 0px 50%;",
+			"div#menu-details" : "background: url(skins/"+skin+"/images/details-bg.png);",
+			"div#menu-details table tr.second, div.second" : "background: url(skins/"+skin+"/images/second-bg.png);",
+			"div#menu-details table tr td:first-of-type" : "background: url(skins/"+skin+"/images/menu-items/phone.png) no-repeat 17px 50%;",
+			"div#menu-details table tr.voicemail td:first-of-type" : "background: url(skins/"+skin+"/images/menu-items/voicemail.png) no-repeat 17px 50%;",
+			".sms-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/sms.png) no-repeat 0px 50%;",
+			".calendar-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/event.png) no-repeat 0px 50%;",
+			".calendar-item.birthday .image-holder" : "background: url(skins/"+skin+"/images/menu-items/birthday_cake.png) no-repeat 0px 50%;",
+			".calendar-item.holiday .image-holder" : "background: url(skins/"+skin+"/images/menu-items/allday_event.png) no-repeat 0px 50%;",
+			".mail-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/mail.png) no-repeat 0px 50%;"
+	}
+	var styleHtml = '';
+	for (var i in styledObjects){
+		styleHtml += i + " { " + styledObjects[i] + " } ";
+	}
+	$("head").append("<style type='text/css'>"+styleHtml+"</style>");
+}

@@ -24,7 +24,6 @@ body, div, h1, h2, h3, h4 {
 }
 
 h1, h2, h3, h4 {
-	background: url(../images/black-bg.png);
 	margin-bottom: 5px;
 }
 
@@ -76,14 +75,6 @@ div.notification div {
 	text-align: center;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px #000;
-}
-
-.push-item .image-holder {
-	background: url(../images/menu-items/notification.png) no-repeat 0px 50%;
-}
-
-.twitter-item .image-holder {
-	background: url(../images/menu-items/twitter.png) no-repeat -2px 50%;
 }
 
 /* TODO add theming support */
@@ -158,8 +149,8 @@ div#clock, div#weather {
 	position:relative;
 }
 
-div#clock { background: url(../images/clock-bg.png) no-repeat; width: 164px; }
-div#weather { background: url(../images/weather-bg.png) no-repeat; width: 156px; }
+div#clock { width: 164px; }
+div#weather { width: 156px; }
 
 div#time {
 	font-size:3.3em;
@@ -208,11 +199,6 @@ div#weather-info #weather-text {
 
 div#weather-image img {
 	height: 80px; width: 80px;
-}
-
-
-div#clock-weather-wrapper {
-	background: url(../images/details-bg.png);
 }
 
 div#clock-weather-details {
@@ -302,7 +288,6 @@ span.secondary-info {
 
 div.menu {
 	height: 54px;	
-	background: url(../images/menu-bg.png);
 	text-align: center;
 }
 
@@ -326,7 +311,6 @@ div.menu .menu-item .unread{
 	position: absolute;
 	width: 22px;
 	height: 23px;
-	background: url(../images/unread-bg.png) no-repeat;
 	font-size:0.9em;
 	line-height:1.1em;
 	right:0;
@@ -340,7 +324,7 @@ div.menu .menu-item.selected .unread, div.menu .menu-item.selected {
 }
 
 div.menu .menu-item.selected {
-	/* background: url(../images/menu-item-bg.png) no-repeat bottom;*/
+	/* background: url(../skins/default/images/menu-item-bg.png) no-repeat bottom;*/
 }
 
 div.menu .menu-item img {
@@ -412,26 +396,6 @@ div.todo-item-note {
 	padding-left: 20px !important;
 }
 
-.todo-item .image-holder {
-	background: url(../images/menu-items/prio4.png) no-repeat 0px 50%;
-}
-
-.todo-item.prio3 .image-holder {
-	background: url(../images/menu-items/prio3.png) no-repeat 0px 50%;
-}
-
-.todo-item.prio2 .image-holder {
-	background: url(../images/menu-items/prio2.png) no-repeat 0px 50%;
-}
-
-.todo-item.prio1 .image-holder {
-	background: url(../images/menu-items/prio1.png) no-repeat 0px 50%;
-}
-
-.rss-item .image-holder {
-	background: url(../images/menu-items/rss.png) no-repeat 0px 50%;
-}
-
 div#mail-item {
 	
 }
@@ -441,7 +405,6 @@ div#twitter-item {
 }
 
 div#menu-details {
-	background: url(../images/details-bg.png);
 	position: relative;
 	overflow: hidden;
 }
@@ -450,10 +413,6 @@ div#menu-details {
 div#menu-details table {
 	width: 100%;
 	font-size:0.95em;
-}
-
-div#menu-details table tr.second, div.second {
-	background: url(../images/second-bg.png);
 }
 
 div#menu-details table td {
@@ -471,15 +430,6 @@ div#menu-details table tr td:first-of-type {
 div#menu-details table tr td:last-of-type {
 	text-align: right;
 }
-
-div#menu-details table tr td:first-of-type  {
-	background: url(../images/menu-items/phone.png) no-repeat 17px 50%;
-}
-
-div#menu-details table tr.voicemail td:first-of-type  {
-	background: url(../images/menu-items/voicemail.png) no-repeat 17px 50%;
-}
-
 
 div#menu-details table td:last-of-type {
 	padding-right: 17px;
@@ -514,10 +464,6 @@ div#sms-detail {
 	padding: 4px 0px;
 }
 
-.sms-item .image-holder {
-	background: url(../images/menu-items/sms.png) no-repeat 0px 50%;
-}
-
 div#calls-detail {
 	
 }
@@ -525,18 +471,6 @@ div#calls-detail {
 /* CALENDAR ITEMS */
 div#calendar-detail {
 	
-}
-
-.calendar-item .image-holder {
-	background: url(../images/menu-items/event.png) no-repeat 0px 50%;
-}
-
-.calendar-item.birthday .image-holder {
-	background: url(../images/menu-items/birthday_cake.png) no-repeat 0px 50%;
-}
-
-.calendar-item.holiday .image-holder {
-	background: url(../images/menu-items/allday_event.png) no-repeat 0px 50%;
 }
 
 .item div {
@@ -570,10 +504,6 @@ div#todo-detail {
 
 div#mail-detail {
 	
-}
-
-.mail-item .image-holder {
-	background: url(../images/menu-items/mail.png) no-repeat 0px 50%;
 }
 
 div#twitter-detail {
