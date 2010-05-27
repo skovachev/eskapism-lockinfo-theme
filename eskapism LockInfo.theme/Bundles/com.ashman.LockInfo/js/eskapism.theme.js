@@ -27,8 +27,6 @@ $LAB.script("strings/"+language+".js").wait()
 		.script( libsExtended )
 		.script( sectionsExtended )
 		.wait(function(){ // wait for all scripts to execute first
-			$("head").append("<link type='text/css' rel='stylesheet' href='skins/default/skin.css' />"); // load default skin
-			$("head").append("<link type='text/css' rel='stylesheet' href='skins/"+skin+"/skin.css' />"); // load selected skin
 			$theme.init();
 //			$LAB.script("js/libs/debug.js")
 		});

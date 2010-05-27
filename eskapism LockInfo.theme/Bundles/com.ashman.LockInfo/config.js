@@ -92,6 +92,7 @@ var sectionsConfig = {
 
 // looks for skin files in the skins/<skin_name>/ folder
 // main styling file must be skin.css
+// To create your own skin use the default skin folder as base
 var skin = "default";
 
 // Number of items in the menu row - MAX IS 5!
