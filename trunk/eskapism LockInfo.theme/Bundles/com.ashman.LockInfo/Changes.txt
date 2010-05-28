@@ -9,6 +9,7 @@ implemented roundabout for menu
 optimized menu animation and logic
 small bug fixes
 implemented skins
+multiple todo plugin support added
 
 
 Version 1.1.1
