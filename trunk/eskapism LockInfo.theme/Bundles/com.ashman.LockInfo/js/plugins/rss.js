@@ -187,7 +187,8 @@ function updateRSS(rss){
 	
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
-	showNewItemsBadge(pluginKey, getCount(feeds.length,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(feeds.length,limit));
 	rssDIV.html(html);
 	reloadContentIfSelected(pluginKey);
 	

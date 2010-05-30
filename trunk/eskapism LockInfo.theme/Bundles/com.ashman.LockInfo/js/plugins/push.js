@@ -67,7 +67,8 @@ function updatePush(pushes){
 	
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
-	showNewItemsBadge(pluginKey, getCount(notifications.length,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(notifications.length,limit));
 	pushnDIV.html(html);
 	reloadContentIfSelected(pluginKey);
 	

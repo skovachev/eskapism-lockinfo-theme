@@ -154,6 +154,10 @@ function enableNotifications(sectionId){
 	return sections[sectionId].enableNotifications;
 }
 
+function disableBadges(sectionId){
+	return sections[sectionId].disableUnreadBadge;
+}
+
 function fixLayout(){
 	if ($("#clock-weather-details-inner").css("opacity")=="0"){
 		$("#clock-weather-details").css("padding","0px 5px");
@@ -496,9 +500,7 @@ function finalizeSkinImages(skin){
 			"h1, h2, h3, h4" : "background: url(skins/"+skin+"/images/black-bg.png);",
 			".push-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/notification.png) no-repeat 0px 50%;",
 			".twitter-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/twitter.png) no-repeat -2px 50%;",
-			"div#clock" : "background: url(skins/"+skin+"/images/clock-bg.png) no-repeat;",
-			"div#weather" : "background: url(skins/"+skin+"/images/weather-bg.png) no-repeat;",
-			"div#clock-weather-wrapper" : "background: url(skins/"+skin+"/images/details-bg.png);",
+			"div#clock-weather" : "background: url(skins/"+skin+"/images/main-bg.png) no-repeat;",
 			"div.menu" : "background: url(skins/"+skin+"/images/menu-bg.png);",
 			"div.menu .menu-item .unread" : "background: url(skins/"+skin+"/images/unread-bg.png) no-repeat;",
 			".todo-item .image-holder" : "background: url(skins/"+skin+"/images/menu-items/prio4.png) no-repeat 0px 50%;",

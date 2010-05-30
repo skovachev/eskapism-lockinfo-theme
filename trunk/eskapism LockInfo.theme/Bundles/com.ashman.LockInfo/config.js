@@ -30,7 +30,8 @@ var sectionsConfig = {
 	"Calls&Voicemail" : {
 		collapseItems : false,
 		enableNotifications : true,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	//------------------------------------
@@ -38,7 +39,8 @@ var sectionsConfig = {
 	"SMS" : {
 		collapseItems : false,
 		enableNotifications : true,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	//------------------------------------
@@ -46,7 +48,8 @@ var sectionsConfig = {
 	"Mail" : {
 		collapseItems : false,
 		enableNotifications : true,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	//------------------------------------
@@ -54,7 +57,8 @@ var sectionsConfig = {
 	"Calendar" : {
 		collapseItems : false,
 		enableNotifications : false,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 
 	//------------------------------------
@@ -62,7 +66,8 @@ var sectionsConfig = {
 	"TODO" : {
 		collapseItems : false,
 		enableNotifications : false,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	//------------------------------------
@@ -70,13 +75,15 @@ var sectionsConfig = {
 	"Twitter" : {
 		collapseItems : false,
 		enableNotifications : false,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	"Push" : {
 		collapseItems : false,
 		enableNotifications : true,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	},
 	
 	//------------------------------------
@@ -84,7 +91,8 @@ var sectionsConfig = {
 	"RSS" : {
 		collapseItems : true,
 		enableNotifications : false,
-		limit: 5
+		limit: 5,
+		disableUnreadBadge: false
 	}
 	
 	//------------------------------------
