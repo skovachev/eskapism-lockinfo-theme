@@ -70,7 +70,8 @@ function updateMail(mail){
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 
 	mailDIV.html( html );
-	showNewItemsBadge(pluginKey, getCount(msgs.length,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(msgs.length,limit));
 	reloadContentIfSelected(pluginKey);
 	
 	for(i = 0; i < relativeTimes.length; i++){

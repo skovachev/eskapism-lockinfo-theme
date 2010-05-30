@@ -63,7 +63,8 @@ function updateTwitter(twitter){
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
 	twitterDIV.html(html);
-	showNewItemsBadge(pluginKey, getCount(tweets.length,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(tweets.length,limit));
 	reloadContentIfSelected(pluginKey);
 	
 	for(i = 0; i < relativeTimes.length; i++){

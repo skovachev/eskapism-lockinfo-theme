@@ -86,7 +86,6 @@ div.notification div {
 
 /* TODO add theming support */
 #action-menu {
-	background: rgba(0,0,0,0.5);
 	display:none;
 	height:81px;
 	padding:5px 0 5px 5px;
@@ -95,7 +94,6 @@ div.notification div {
 
 /* TODO add theming support */
 #action-menu div.action {
-	background:rgba(0, 0, 0, 0.35);
 	float:left;
 	height:78px;
 	margin-right:5px;
@@ -104,10 +102,6 @@ div.notification div {
 	position:relative;
 	text-align:center;
 	width:132px;
-	border-right: 1px solid rgba(0,0,0,0.5);
-	border-bottom: 1px solid rgba(0,0,0,0.5);
-	border-top: 1px solid rgba(255,255,255,0.5);
-	border-left: 1px solid rgba(255,255,255,0.5);
 }
 
 /* TODO add theming support */

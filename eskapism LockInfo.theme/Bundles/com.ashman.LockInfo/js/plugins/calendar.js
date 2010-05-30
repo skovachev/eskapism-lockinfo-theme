@@ -168,7 +168,8 @@ function updateCalendar(calendar){
 	
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
-	showNewItemsBadge(pluginKey, getCount(headerCount,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(headerCount,limit));
 	calendarDIV.html(html);
 	reloadContentIfSelected(pluginKey);
 	

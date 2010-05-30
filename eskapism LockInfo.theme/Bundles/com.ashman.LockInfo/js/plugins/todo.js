@@ -102,7 +102,8 @@ function updateTODO(todo) {
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
 	todoDIV.html(html);
-	showNewItemsBadge(pluginKey, getCount(todos.length,limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(todos.length,limit));
 	reloadContentIfSelected(pluginKey);
 	
 	for(i = 0; i < relativeTimes.length; i++){

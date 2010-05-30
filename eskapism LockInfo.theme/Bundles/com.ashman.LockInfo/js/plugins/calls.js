@@ -70,7 +70,8 @@ function updatePhone(phone){
 	html = html ? html : "<div class='item'>"+noItems[pluginKey]+"</div>";
 	
 	callsDIV.html(html);
-	showNewItemsBadge(pluginKey, getCount(phoneMerged.length, limit));
+	if (!disableBadges(pluginKey))
+		showNewItemsBadge(pluginKey, getCount(phoneMerged.length, limit));
 	reloadContentIfSelected(pluginKey);
 	
 	for(i = 0; i < relativeTimes.length; i++){
