@@ -149,7 +149,7 @@ div#menu-detail {
 
 .color2 { 
 	/* color group 2, includes:
-	 * today's date, today's temperature, phone type (mobile/home), sms sender, mail sender, push notification source application, rss channel name,   */
+	 * today's date, today's temperature, phone type (mobile/home), sms sender, mail sender, push notification source application, rss channel name, calendar time, todo time  */
 	color: #98D153 !important;
 }
 

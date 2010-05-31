@@ -142,5 +142,5 @@ var rss = {
 	}
 
 //document.body.style.background = "gray";
-window.setTimeout(function(){updatePush(push);updateRSS(rss);updatePhone(calls);updateCalendar(cal);updateMail(mail);updateSMS(sms); updateTODO(todo); /*updateTwitter(twitter)*/ }, 1000);
+window.setTimeout(function(){updatePush(push);updateRSS(rss);updatePhone(calls);updateCalendar(cal);updateMail(mail);updateSMS(sms); updateTODO(todo); updateTwitter(twitter); }, 1000);
 

@@ -7,8 +7,8 @@ $theme["init"] = function(){
 	root.append(notificationsHtml);
 	
 	var actionMenuHtml = '';
-	actionMenuHtml += "<div id='am-refresh-weather' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_weather.png' /><span>refresh weather</span></div>";
-	actionMenuHtml += "<div id='am-refresh-rss' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_rss.png' /><span>refresh rss</span></div>";
+	actionMenuHtml += "<div id='am-refresh-weather' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_weather.png' /><span>"+refreshString+"</span></div>";
+	actionMenuHtml += "<div id='am-refresh-rss' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_rss.png' /><span>"+refreshString+"</span></div>";
 	
 	var clockWeatherHtml = '';
 	clockWeatherHtml += '<div id="clock-weather">';
@@ -212,9 +212,20 @@ $theme["init"] = function(){
 	
 	if (centerMenuItems){
 		$(".menu-row").each(function(){
+			var width = $(".menu-items").width();
 			var nrItems = $(".menu-item", $(this)).size();
 			var itemSize = $(".menu-item:first").width();
-			$(this).css("width", (nrItems*itemSize)+"px");
+			var paddingRemainder = width - nrItems*itemSize;
+			var padding = paddingRemainder / (nrItems * 2 - 2);
+			$(this).css("width", width+"px");
+			$(".menu-item", $(this)).css("margin", "0px "+padding+"px").each(function(index){
+				if (index == 0 || index % itemsInMenuRowMax == 0){
+					$(this).css("margin-left", "0px");
+				} else if (index % itemsInMenuRowMax == itemsInMenuRowMax-1){
+					itemsInMenuRowMax
+					$(this).css("margin-right", "0px");
+				}
+			});
 		});
 	}
 	

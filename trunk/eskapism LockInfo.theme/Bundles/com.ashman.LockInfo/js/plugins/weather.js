@@ -82,6 +82,7 @@ function getIconName(input){
 }
 
 function displayWeather(obj){
+	if (!obj) return false;
 	weatherRetries = 0;
 	lastWeatherUpdate = new Date();
 	var city = obj.city;

@@ -90,7 +90,7 @@ function updateCalendar(calendar){
 			var dayID = "day_"+(day++);
 			
 			if (allDay){
-				html += "<span class='color3'>"+start.format(format_date_longer)+"</span> - <span class='calendar-time'>all day</span> ";
+				html += "<span class='color3'>"+start.format(format_date_longer)+"</span> - <span class='calendar-time color2'>all day</span> ";
 				if(showRelativeTimes){
 					html += "<span class='calendar-time'> <span id=\""+dayID+"_"+i+"\"></span></span> ";
 					relativeTimes.push([dayID+"_"+i, start, true, false, '']);
@@ -102,18 +102,18 @@ function updateCalendar(calendar){
 				}
 				html += "<span class='calendar-time'>"+start.format(format_date_short)+"</span>";
 				if(startAndEndPresent){
-					html += " "+string_time_to+"<span class='calendar-time'>"+end.format(format_date_short)+"</span> ";
+					html += " "+string_time_to+"<span class='calendar-time color2'>"+end.format(format_date_short)+"</span> ";
 				}
 				
 				if(showRelativeTimes){
 					if(start > now){
-						html += "<span class='calendar-time'> <span id=\""+dayID+"_"+i+"\"></span></span> ";
+						html += "<span class='calendar-time color2'> <span id=\""+dayID+"_"+i+"\"></span></span> ";
 						relativeTimes.push([dayID+"_"+i, start, true, true, '']);
 					}else if(start.isSameDay(currentDate)){
-						html += "<span class='calendar-time'> "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"\"></span>"+string_ends_suffix+"</span> ";
+						html += "<span class='calendar-time color2'> "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"\"></span>"+string_ends_suffix+"</span> ";
 						relativeTimes.push([dayID+"_"+i, end, true, false, '']);
 					}else{
-						html += "<span class='calendar-time'> "+string_began_prefix+"<span id=\""+dayID+"_"+i+"_start\"></span>"+string_began_suffix+" | "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"_end\"></span>"+string_ends_suffix+"</span> ";
+						html += "<span class='calendar-time color2'> "+string_began_prefix+"<span id=\""+dayID+"_"+i+"_start\"></span>"+string_began_suffix+" | "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"_end\"></span>"+string_ends_suffix+"</span> ";
 						relativeTimes.push([dayID+"_"+i+"_start", start, events[i].allDay, false, string_justNow]);
 						relativeTimes.push([dayID+"_"+i+"_end", end, events[i].allDay, false, string_now]);
 					}
@@ -125,21 +125,21 @@ function updateCalendar(calendar){
 				if (startAndEndPresent){
 					html += string_time_from+" ";
 				}
-				html += "<span class='calendar-time'>"+start.format(end.isSameDay(start) ? format_time : format_date_short+" "+format_time)+"</span>";
+				html += "<span class='calendar-time color2'>"+start.format(end.isSameDay(start) ? format_time : format_date_short+" "+format_time)+"</span>";
 				if(startAndEndPresent){
-					html += " "+string_time_to+" <span class='calendar-time'>"+end.format(start.isSameDay(end) ? format_time : format_time+" "+format_date_short)+"</span>";
+					html += " "+string_time_to+" <span class='calendar-time color2'>"+end.format(start.isSameDay(end) ? format_time : format_time+" "+format_date_short)+"</span>";
 				}
 				
 				if(showRelativeTimes){
 					if(start > now){
-						html += "<span class='calendar-time'> "+string_begins_prefix+"<span id=\""+dayID+"_"+i+"\"></span>"+string_begins_suffix+"</span> ";
+						html += "<span class='calendar-time color2'> "+string_begins_prefix+"<span id=\""+dayID+"_"+i+"\"></span>"+string_begins_suffix+"</span> ";
 						relativeTimes.push([dayID+"_"+i, start, false, false, string_now]);
 						var timeout2 = start.getTime() - now.getTime();
 						if(timeout2 < timeout){
 							timeout = timeout2;
 						}
 					}else{
-						html += "<span class='calendar-time'> "+string_began_prefix+"<span id=\""+dayID+"_"+i+"_start\"></span>"+string_began_suffix+" | "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"_end\"></span>"+string_ends_suffix+"</span> ";
+						html += "<span class='calendar-time color2'> "+string_began_prefix+"<span id=\""+dayID+"_"+i+"_start\"></span>"+string_began_suffix+" | "+string_ends_prefix+"<span id=\""+dayID+"_"+i+"_end\"></span>"+string_ends_suffix+"</span> ";
 						relativeTimes.push([dayID+"_"+i+"_start", start, events[i].allDay, false, string_justNow]);
 						relativeTimes.push([dayID+"_"+i+"_end", end, events[i].allDay, false, string_now]);
 						var timeout2 = end.getTime() - now.getTime();

@@ -4,7 +4,7 @@ var altNotification = '';
 var beginDateOffset = 0;
 var currentCityIndex = 0;
 
-var debug = true;
+var debug = false;
 
 var lockinfoDIV = $("#lockinfo");
 var clockDIV;

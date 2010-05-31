@@ -106,9 +106,7 @@ div.notification div {
 
 /* TODO add theming support */
 #action-menu div.action img {
-	float:left;
-	margin-left:10px;
-	margin-top:15px;
+
 }
 
 #action-menu-inner {
@@ -118,14 +116,10 @@ div.notification div {
 /* TODO add theming support */
 #action-menu div.action span {
 	display:block;
-	float:left;
 	font-size:0.9em;
 	font-variant:small-caps;
 	height:48px;
-	margin-top:15px;
-	padding-top:7px;
 	top:50%;
-	width:50px;
 }
 
 div.menu, div#clock-weather {

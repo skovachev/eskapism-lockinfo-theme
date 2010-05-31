@@ -1,1 +1,2 @@
-TODO
+refresh_rss.png		-	Image for the refresh RSS button
+refresh_weather.png -	Image for the refresh weather button
