@@ -1,0 +1,173 @@
+/* eskapism Lockinfo theme
+ * theme.eskapism.com
+ * twitter.com/eskapismTheme
+ * ------------------------------------
+ * 
+ * Main style file for the glasklart skin
+ *  
+ */
+
+body {
+	/* font settings for the whole theme */
+	font-family: HebarU, Arial, sans-serif;
+	color: #fff;
+	background: url(images/bg.png)
+}
+
+h1, h2, h3, h4 {
+	/* header settings */
+	color: white;
+	text-align: center;
+}
+
+div.notification {
+	/* top notification settings */
+	background: transparent;
+	border-bottom: none;
+	border-top: none;
+}
+
+div.notification.second {
+	/* alternating top notification settings */
+	background: rgba(255,255,255,0.4);
+}
+
+div.menu, div#clock-weather {
+	/* border settings for the clock/weather and main menus */
+	border-bottom: none;
+	border-top: none;
+}
+
+div.middle-menu-row { 
+    /* settings for the middle menu row borders (if all rows are shown) */
+	border-top: none; 
+	border-bottom: none;  
+}
+div.first-menu-row { 
+	/* settings for the first menu row borders (if all rows are shown) */
+	border-bottom: none;   
+}
+div.last-menu-row { 
+	/* settings for the last menu row borders (if all rows are shown) */
+	border-top: none;  
+}
+
+div#clock-calendar-month-name {
+	/* settings for the month name header in the month block */
+	background: #8F9ABF;
+	text-align: center;
+}
+
+div#time {
+	/* settings for the time display */
+	color: auto !important; /* replace 'auto' with color */
+}
+
+div#weather-info #weather-text {
+	/* settings for the weather description */
+	color: auto; /* replace 'auto' with color */
+}
+
+div#weather-info #weather-city {
+	/* settings for the city */
+	color: auto; /* replace 'auto' with color */
+}
+
+div.clock-inner td.today  {
+	/* settings for the today marker on the calendar */
+	background-color:#8F9ABF;
+}
+
+div.clock-inner .otherMonth {
+	/* settings for the days of the other (not currently selected) months */
+	color:#999;
+}
+
+div.clock-inner .thisMonth {
+	/* settings for the days of the currently selected month */
+	color:#fff;
+}
+
+div#clock-weather-details .high {
+	/* settings for the highest daily temp */
+	color: #ffb;
+}
+
+div#clock-weather-details .low {
+	/* settings for the lowest daily temp */
+	color: #fff;
+}
+
+div.todo-item-time {
+	/* time section of the todo item list */
+	color: #A7B3DF;
+}
+
+span.todo-name, span.rss-title, span.calendar-title, div#menu-details table span.name, span.mail-subject, span.sms-sender, .twitter-author {
+	/* titles of items in lists (e.g. todo items, calendar items) */
+	color: #eee;
+}
+
+div#menu-details table span.ampm, 
+div#menu-details table span.label, 
+div#menu-details span.calendar-cal,
+div#menu-details span.twitter-author-name,
+div#clock-weather-details .fday,
+div#clock-weather-details-inner #Month th,
+div#menu-details span.mail-acc{
+	/* settings for the the following sections of list items:
+	 * calls relative time, calendar name, tweet author name, weather day of week, eMail account name, calendar day of the week
+	 */
+	color: #c4c4c4;
+}
+
+div#menu-detail {
+	/* block containing menu items lists */
+	border-bottom: none;
+}
+
+.calendar-time {
+	/* calendar list item time (in the parenthesis) */
+	color: #A7B3DF;
+}
+
+.calendar-location {
+	/* calendar list item location */
+	color: #A7B3DF;
+}
+
+/* settings for color groups have the highest priority */
+
+.color1 { 
+	/* color group 1, includes: 
+	 * missed call time, sms time, mail time, push notification time, rss time */
+	color: #ccc !important;
+}
+
+.color2 { 
+	/* color group 2, includes:
+	 * today's date, today's temperature, phone type (mobile/home), sms sender, mail sender, push notification source application, rss channel name,   */
+	color: #A7B3DF !important;
+}
+
+.color3 { 
+	/* color group 3, includes:
+	 * calendar list item date */
+	color: #ccc !important; 
+}
+
+div.menu .menu-item .unread {
+	background-position:2px 0 !important;
+	display:none;
+	font-size:0.9em;
+	height:29px;
+	line-height:1.1em;
+	margin-top:-3px;
+	opacity:0.8;
+	padding-top:3px;
+	position:absolute;
+	right:-7px;
+	width:32px;
+	color: white;
+}
+
