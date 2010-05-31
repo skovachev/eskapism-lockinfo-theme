@@ -230,3 +230,5 @@ var refreshingWeather = "Refreshing weather...";
 var weatherRetry = " Retry ";
 var refreshingRSS = "Reloading RSS feeds...";
 var rssRefreshed = "RSS feeds loaded successfully.";
+
+var refreshString = "refresh";

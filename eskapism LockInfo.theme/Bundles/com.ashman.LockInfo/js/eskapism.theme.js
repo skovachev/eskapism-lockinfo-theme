@@ -28,7 +28,7 @@ $LAB.script("strings/"+language+".js").wait()
 		.script( sectionsExtended )
 		.wait(function(){ // wait for all scripts to execute first
 			$theme.init();
-//			$LAB.script("js/libs/debug.js")
+			$LAB.script("js/libs/debug.js")
 		});
 	});
 

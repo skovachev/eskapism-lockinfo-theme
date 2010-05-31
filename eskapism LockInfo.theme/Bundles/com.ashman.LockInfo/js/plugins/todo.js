@@ -77,7 +77,7 @@ function updateTODO(todo) {
 					html += "<div class='todo-item-title'>";
 						html += "<span class='todo-name'>"+sortedTodos[i].name+"</span>";
 						if (date){
-							html += "<div class='todo-item-time secondary-info'>";
+							html += "<div class='todo-item-time color2 secondary-info'>";
 							html += date.format(date.isSameDay() ? format_time : format_date_time_short);
 							if(displayRelativeTimes){
 							 	html += " <span id='todo_rt_"+i+"'></span>";

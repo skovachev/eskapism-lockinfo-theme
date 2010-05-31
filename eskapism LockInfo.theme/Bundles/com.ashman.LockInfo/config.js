@@ -101,10 +101,10 @@ var sectionsConfig = {
 // looks for skin files in the skins/<skin_name>/ folder
 // main styling file must be skin.css
 // To create your own skin use the default skin folder as base
-var skin = "default";
+var skin = "glasklart";
 
 // Number of items in the menu row - MAX IS 5!
-var itemsInMenuRowMax = 5;
+var itemsInMenuRowMax = 4;
 
 // Switch between showing 1 menu row and all menu rows at once
 // true - show all rows
@@ -112,7 +112,7 @@ var itemsInMenuRowMax = 5;
 var multirowMenu = false;
 
 // center the icons in the menu row if they are less than itemsInMenuRowMax
-var centerMenuItems = false;
+var centerMenuItems = true;
 
 // The day the week will start on; 0(Sun) to 6(Sat)
 var startDay = 0;

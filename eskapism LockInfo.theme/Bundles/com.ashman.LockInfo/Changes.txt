@@ -1,15 +1,16 @@
 ver. 1.2
-multiline menu
+multiline menu -
 fix multiline todo notes
-added support for multiple locales (swipe, tap on the weather div)
+added support for multiple locales (swipe, tap on the weather div) -
 add an action menu
-added option to refresh rss feeds
-added option to refresh weather
+added option to refresh rss feeds -
+added option to refresh weather -
 implemented roundabout for menu
 optimized menu animation and logic
 small bug fixes
 implemented skins
 multiple todo plugin support added
+fixed center icons functionality
 
 
 Version 1.1.1
