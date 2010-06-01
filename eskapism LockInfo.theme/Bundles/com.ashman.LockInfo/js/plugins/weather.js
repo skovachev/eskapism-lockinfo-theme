@@ -2,6 +2,8 @@ if (useWeatherIcon){
 	callbacks['com.ashman.lockinfo.WeatherIconPlugin'] = updateWeather;
 }
 
+var weatherRequests = [];
+
 var weatherObjects = {};
 var postals = {length:0};
 var postalIdx = {length:0};
@@ -26,9 +28,32 @@ headID.appendChild(scriptNode);
 
 function updateWeatherCustom(){
 	var pluginKey = "weather";
+	for (var i in weatherRequests){
+		weatherRequests[i].abort();
+	}
 	flashNotification(refreshingWeather, pluginKey);
 	for (var i=0; i<locale.length; i++){
 		validateWeatherLocation(escape(locale[i]).replace(/^%u/g, "%"), setPostal, 0, i);
+	}
+	
+	// TODO fix when no internet connetion to update from!
+	var failover;
+	if (weatherRetryInterval && (!weatherRetriesMax || weatherRetries < weatherRetriesMax)){
+		failover = setTimeout(function(){
+			log("failover");
+			log(weatherRetries);
+			if (!weatherUpdated) { 
+				updateWeatherCustom();
+				if (enableNotifications(pluginKey)){
+					flashNotification(refreshingWeather+weatherRetry+(weatherRetries+1), pluginKey);
+				}
+				weatherRetries++;
+			} else {
+				window.clearTimeout(failover);
+			}
+		}, weatherRetryInterval*60000);
+	} else {
+		flashNotification(errorUpdatingWeather, pluginKey);
 	}
 }
 
@@ -56,6 +81,7 @@ function setPostal(obj){
 			}
 		}
 	}else{
+		var pluginKey = "weather";
 		window.clearTimeout(weatherDIV.timer);
 		$("#weather-image img").attr("src","Icon Sets/"+iconSet+"/dunno"+iconExt);
 		//$("#weather-city").html(obj.errorString);
@@ -81,6 +107,7 @@ function getIconName(input){
 	}
 }
 
+var weatherUpdated = false;
 function displayWeather(obj){
 	if (!obj) return false;
 	weatherRetries = 0;
@@ -129,10 +156,13 @@ function displayWeather(obj){
 	if (currentlyOpenMainMenuElement == "weather"){
 		$("#clock-weather-details-inner").html(html);
 	}
+	
+	weatherUpdated = true;
 }
 
 function dealWithWeather(obj){
 	var pluginKey = "weather";
+	log("deal");
 	window.clearTimeout(weatherDIV.timer);
 	if(!obj.error){
 		weatherObjects[obj.idx] = obj;
@@ -148,7 +178,7 @@ function dealWithWeather(obj){
 				flashNotification(notificationMessages[pluginKey], pluginKey, 0, true);
 			}
 		}
-	} else if(weatherRetryInterval && (!weatherRetriesMax || weatherRetries <= weatherRetriesMax)){
+	} else if(weatherRetryInterval && (!weatherRetriesMax || weatherRetries < weatherRetriesMax)){
 		if(weatherRetryInterval){
 			weatherDIV.timer = window.setTimeout(weatherRefresherTemp, 60000*weatherRetryInterval);
 			if (enableNotifications(pluginKey)){
@@ -163,10 +193,14 @@ function dealWithWeather(obj){
 }
 
 function weatherRefresherTemp(){
+	log("weatherRefresherTemp");
+	weatherUpdated = false;
+//	for (var i in weatherRequests){
+//		weatherRequests[i].abort();
+//	}
 	var pluginKey = "weather";
 	flashNotification(refreshingWeather, pluginKey);
 	
-	weatherRetries++;
 	for(var i = 0; i < postals.length; i++){
 		if (postals[i])
 			fetchWeatherData(dealWithWeather, postals[i], i, postalIdx[i]);

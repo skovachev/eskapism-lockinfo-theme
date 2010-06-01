@@ -77,6 +77,8 @@ function flashNotification(text, id, callback, hideOverride){
 	if (!exists){
 		notificationElement.hide().slideDown(animationSpeed,endCallback);
 	} else {
+		if (notificationElement.is(":hidden"))
+			notificationElement.hide().slideDown(animationSpeed,endCallback);
 		endCallback();
 	}
 	altNotification = altNotification ? '' : " second";
@@ -396,7 +398,9 @@ function setUpActionMenu(options){
 	if (!useWeatherIcon){
 		$("#am-refresh-weather").touch($.extend({}, options, {
 		     tap: function(){ 
-				weatherRefresherTemp(); 
+				//weatherRefresherTemp(); 
+				weatherRetries = 0;
+				updateWeatherCustom();
 				setTimeout(function(){ openActionMenu("right"); }, 300);
 			 }
 		})).show();
