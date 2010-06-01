@@ -103,19 +103,30 @@ function trimWhiteSpace(string){
 //		sunrise:		time 24 hours(nn:nn)
 
 function fetchWeatherData(callback, zip, id, localeIdx){
+	log("fetch");
 	var url = 'http://apple.accuweather.com/adcbin/apple/Apple_Weather_Data.asp?zipcode=';
 	//var url = 'http://wu.apple.com/adcbin/apple/Apple_Weather_Data.asp?zipcode=';
 	if(typeof(netscape) == "object") netscape.security.PrivilegeManager.enablePrivilege('UniversalBrowserRead');
 
-	var xml_request = new XMLHttpRequest();
-	xml_request.onload = function(e){xml_loaded(e, xml_request, callback, id, localeIdx);}
-	xml_request.overrideMimeType("text/xml");
-	xml_request.open("GET", url+zip);
-	xml_request.setRequestHeader("Cache-Control", "no-cache");
-	xml_request.setRequestHeader("wx", "385");
-	xml_request.send(null);
+	$.ajax({
+		url: 'http://apple.accuweather.com/adcbin/apple/Apple_Weather_Data.asp',
+		beforeSend: function(xhr){
+			xhr.overrideMimeType("text/xml");
+			xhr.setRequestHeader("Cache-Control", "no-cache");
+			xhr.setRequestHeader("wx", "385");
+			weatherRequests.push(xhr);
+		},
+		data: 'zipcode='+zip,
+		  success: function(e,status,xml_request) {
+			xml_loaded(e, xml_request, callback, id, localeIdx);
+		  },
+		  error: function(){
+//			  log("error 2");
+			  //flashNotification(errorUpdatingWeather, "weather");
+		  }
+	});
 
-	return xml_request;
+	//return xml_request;
 }
 
 function constructError(string, id){
@@ -141,7 +152,9 @@ function parseDayCode(dayCode){
 }
 
 function xml_loaded(event, request, callback, id, localeIdx){
+	//console.log("xml_loaded");
 	if(!request.responseXML){
+		log("no xml");
 		callback({id:id, error:true, errorString:"XML request failed. no responseXML"}); //Could be any number of things..
 	}else{
 		var obj = {id:id, error:false, errorString:null, idx: localeIdx}; 
@@ -295,13 +308,23 @@ function validateWeatherLocation(location, callback, id, locationIndex){
 	var url = 'http://apple.accuweather.com/adcbin/apple/Apple_find_city.asp?location=';
 	//var url = 'http://wu.apple.com/adcbin/apple/Apple_find_city.asp?location=';
 	if(typeof(netscape) == "object") netscape.security.PrivilegeManager.enablePrivilege('UniversalBrowserRead');
-
-	var xml_request = new XMLHttpRequest();
-	xml_request.onload = function(e){xml_validateloaded(e, xml_request, callback, id, locationIndex);}
-	xml_request.overrideMimeType("text/xml");
-	xml_request.open("GET", url+location);
-	xml_request.setRequestHeader("Cache-Control", "no-cache");
-	xml_request.send(null);
+	
+	$.ajax({
+		url: 'http://apple.accuweather.com/adcbin/apple/Apple_find_city.asp',
+		beforeSend: function(xhr){
+			xhr.overrideMimeType("text/xml");
+			xhr.setRequestHeader("Cache-Control", "no-cache");
+			weatherRequests.push(xhr);
+		},
+		data: 'location='+location,
+		  success: function(e,status,xml_request) {
+			xml_validateloaded(e, xml_request, callback, id, locationIndex);
+		  },
+		  error: function(){
+			  //log("error");
+			  //flashNotification(errorUpdatingWeather, "weather");
+		  }
+	});
 }
 
 function xml_validateloaded(event, request, callback, id, locationIndex){
