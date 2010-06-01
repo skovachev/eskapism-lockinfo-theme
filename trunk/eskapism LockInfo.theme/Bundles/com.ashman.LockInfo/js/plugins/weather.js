@@ -4,6 +4,7 @@ if (useWeatherIcon){
 
 var weatherRequests = [];
 
+var failover;
 var weatherObjects = {};
 var postals = {length:0};
 var postalIdx = {length:0};
@@ -37,23 +38,29 @@ function updateWeatherCustom(){
 	}
 	
 	// TODO fix when no internet connetion to update from!
-	var failover;
+	window.clearTimeout(failover);
+	log(weatherRetryInterval); log(weatherRetries); log(weatherRetriesMax);
 	if (weatherRetryInterval && (!weatherRetriesMax || weatherRetries < weatherRetriesMax)){
+		log("in");
 		failover = setTimeout(function(){
 			log("failover");
 			log(weatherRetries);
 			if (!weatherUpdated) { 
+				weatherRetries++;
 				updateWeatherCustom();
 				if (enableNotifications(pluginKey)){
-					flashNotification(refreshingWeather+weatherRetry+(weatherRetries+1), pluginKey);
+					flashNotification(refreshingWeather+weatherRetry+(weatherRetries), pluginKey);
 				}
-				weatherRetries++;
 			} else {
 				window.clearTimeout(failover);
 			}
 		}, weatherRetryInterval*60000);
 	} else {
-		flashNotification(errorUpdatingWeather, pluginKey);
+		log("error");
+		window.clearTimeout(failover);
+		removeNotification(pluginKey, function(){
+			flashNotification(errorUpdatingWeather, pluginKey);
+		});
 	}
 }
 
@@ -158,6 +165,7 @@ function displayWeather(obj){
 	}
 	
 	weatherUpdated = true;
+	window.clearTimeout(failover);
 }
 
 function dealWithWeather(obj){
@@ -178,7 +186,7 @@ function dealWithWeather(obj){
 				flashNotification(notificationMessages[pluginKey], pluginKey, 0, true);
 			}
 		}
-	} else if(weatherRetryInterval && (!weatherRetriesMax || weatherRetries < weatherRetriesMax)){
+	}/* else if(weatherRetryInterval && (!weatherRetriesMax || weatherRetries < weatherRetriesMax)){
 		if(weatherRetryInterval){
 			weatherDIV.timer = window.setTimeout(weatherRefresherTemp, 60000*weatherRetryInterval);
 			if (enableNotifications(pluginKey)){
@@ -189,7 +197,7 @@ function dealWithWeather(obj){
 		if (enableNotifications(pluginKey)){
 			flashNotification(errorUpdatingWeather, pluginKey);
 		}
-	}
+	}*/
 }
 
 function weatherRefresherTemp(){
@@ -198,8 +206,8 @@ function weatherRefresherTemp(){
 //	for (var i in weatherRequests){
 //		weatherRequests[i].abort();
 //	}
-	var pluginKey = "weather";
-	flashNotification(refreshingWeather, pluginKey);
+	//var pluginKey = "weather";
+	//flashNotification(refreshingWeather, pluginKey);
 	
 	for(var i = 0; i < postals.length; i++){
 		if (postals[i])

@@ -84,10 +84,13 @@ function flashNotification(text, id, callback, hideOverride){
 	altNotification = altNotification ? '' : " second";
 }
 
-function removeNotification(id){
+function removeNotification(id, callback){
 	id = "notification-"+id;
 	var notification = $("#"+id+".notification");
-	notification.slideUp(animationSpeed, function(){ notification.remove(); });
+	notification.slideUp(animationSpeed, function(){ 
+		notification.remove(); 
+		if (callback) callback();
+	});
 }
 
 function relativeTime(sectionDIV, id, time, daysOnly, upperFirst, emptyString){
@@ -324,6 +327,7 @@ function getSlideInDirection(incoming){
 
 function swipeMainMenu(direction, options){
 	
+	if (options['element'] == "weather" && locale.length == 1) return;
 	var slideInDirection = getSlideInDirection(direction);
 	
 	// if weather is swiped
@@ -350,14 +354,14 @@ function swipeMainMenu(direction, options){
 		}
 	}
 	
-	$("#clock-weather-details").hide("slide", { direction: direction }, animationSpeed, function(){
+	$("#clock-weather-details-inner").hide("slide", { direction: direction }, animationSpeed, function(){
 		if (options['element'] == "weather") {
 			displayWeather(weatherObjects[currentCityIndex]);
 		} else {
 			updateClock(true);
 		}
 	});
-	$("#clock-weather-details").show("slide", { direction: slideInDirection }, animationSpeed);
+	$("#clock-weather-details-inner").show("slide", { direction: slideInDirection }, animationSpeed);
 }
 
 var openning = false;
@@ -367,7 +371,7 @@ function openActionMenu(direction){
 	var slideInDirection = getSlideInDirection(direction);
 	openning = true;
 	if (direction == "none") direction = "down";
-	$("#clock-weather").hide("slide", { direction: direction }, animationSpeed, function(){
+	$("#clock-weather-inner").hide("slide", { direction: direction }, animationSpeed, function(){
 		actionMenuShown = !actionMenuShown;
 		
 		if (actionMenuShown){
@@ -379,7 +383,7 @@ function openActionMenu(direction){
 		}
 		
 		openning = false;
-		$("#clock-weather").show("slide", { direction: slideInDirection }, animationSpeed);
+		$("#clock-weather-inner").show("slide", { direction: slideInDirection }, animationSpeed);
 	});
 	
 }
@@ -399,7 +403,14 @@ function setUpActionMenu(options){
 		$("#am-refresh-weather").touch($.extend({}, options, {
 		     tap: function(){ 
 				//weatherRefresherTemp(); 
+				window.clearTimeout(failover);
 				weatherRetries = 0;
+				weatherUpdated = false;
+				weatherObjects = {};
+				postals = {length:0};
+				postalIdx = {length:0};
+				xmlReq = new XMLHttpRequest();
+				launchReq = new XMLHttpRequest();
 				updateWeatherCustom();
 				setTimeout(function(){ openActionMenu("right"); }, 300);
 			 }
@@ -436,7 +447,7 @@ function setUpClockAndWeatherMenu(options){
 								$("#clock-weather-details").animate({
 									"padding-top": "5px",
 								    "padding-bottom": "5px"
-								  }, animationSpeed).css("border-bottom","1px solid black");
+								  }, animationSpeed).addClass("openDetails");
 								var o = $.extend(options,{ "element": currentId });
 								$("#clock-weather-details-inner").touch($.extend(options, {
 								     tap: function(){ swipeMainMenu("none", o); },
@@ -449,7 +460,7 @@ function setUpClockAndWeatherMenu(options){
 							$("#clock-weather-details").animate({
 							    "padding-top": "0px",
 							    "padding-bottom": "0px"
-							  }, animationSpeed).css("border-bottom","none");
+							  }, animationSpeed).removeClass("openDetails");
 						}
 					});
 					//openActionMenu("right");

@@ -203,7 +203,7 @@ var weatherUpdateInterval = 300; //Minutes
 var weatherRetryInterval = 0.5; //Minutes
 
 //If stop trying after this many consecutive failed attempts (set to 0 for infinite retries):
-var weatherRetriesMax = 1;
+var weatherRetriesMax = 5;
 
 //The (currently broken) 'Yahoo' which for the 'locale' requires a US zip or location code
 //(e.g. UKXX0085 or CHXX0008) from http://weather.yahoo.com

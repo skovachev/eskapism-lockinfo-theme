@@ -11,7 +11,7 @@ $theme["init"] = function(){
 	actionMenuHtml += "<div id='am-refresh-rss' class='action' style='display:none;'><img src='skins/"+skin+"/images/action-menu/refresh_rss.png' /><span>"+refreshString+"</span></div>";
 	
 	var clockWeatherHtml = '';
-	clockWeatherHtml += '<div id="clock-weather">';
+	clockWeatherHtml += '<div id="clock-weather"><div id="clock-weather-inner">';
 		clockWeatherHtml += '<div id="action-menu"><div id="action-menu-inner">'+actionMenuHtml+'</div></div>';
 		clockWeatherHtml += '<div class="clear"></div>';
 	clockWeatherHtml += '</div>';
@@ -20,7 +20,7 @@ $theme["init"] = function(){
 		clockWeatherHtml += '<div id="clock-weather-details-inner"></div>';
 		clockWeatherHtml += '<div id="clock-details"></div>';
 		clockWeatherHtml += '<div id="weather-details"></div>';
-	clockWeatherHtml += '</div></div>';
+	clockWeatherHtml += '</div></div></div>';
 	root.append(clockWeatherHtml);
 	
 	var menuHtml = '';

@@ -61,6 +61,11 @@ div#clock-calendar-month-name {
 	text-align: center;
 }
 
+div#clock-weather-details.openDetails {
+	/* settings for open clock / weather details block */
+	border-bottom: 1px solid black;
+}
+
 div#time {
 	/* settings for the time display */
 	color: auto !important; /* replace 'auto' with color */
