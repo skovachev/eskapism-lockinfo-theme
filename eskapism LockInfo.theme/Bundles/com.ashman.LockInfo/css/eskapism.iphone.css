@@ -206,6 +206,10 @@ div#clock-weather-details-inner {
 	overflow:visible;
 }
 
+div#clock-weather-details.openDetails {
+	border-bottom: 1px solid black;
+}
+
 div#clock-details, div#weather-details {
 	display: none;
 }
