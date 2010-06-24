@@ -82,7 +82,7 @@ $theme["init"] = function(){
 			$(".menu:last").addClass("last-menu-row");
 		}
 		menuRow.append(html);
-		menuRow.find("div#"+id).data("menuName",menuName);
+		menuRow.find("div#"+id).attr("menuName", menuName);
 	}
 	
 	for(var i in sections){

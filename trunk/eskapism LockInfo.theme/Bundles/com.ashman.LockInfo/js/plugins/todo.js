@@ -76,7 +76,7 @@ function updateTODO(todo) {
 				html += "<div class='todo-item-content'>";
 					html += "<div class='todo-item-title'>";
 						html += "<span class='todo-name'>"+sortedTodos[i].name+"</span>";
-						if (date){
+						if (sortedTodos[i].due && date){
 							html += "<div class='todo-item-time color2 secondary-info'>";
 							html += date.format(date.isSameDay() ? format_time : format_date_time_short);
 							if(displayRelativeTimes){
@@ -86,9 +86,11 @@ function updateTODO(todo) {
 							html += "</div>";
 						}
 					html += "</div>";
-					html += "<div class='todo-item-note secondary-info'>";
-						html += sortedTodos[i].note.replace(/\n/gi, "<br/>"); // replace in case of multiline notes
-					html += "</div>";
+					if (sortedTodos[i].note) {
+						html += "<div class='todo-item-note secondary-info'>";
+							html += sortedTodos[i].note.replace(/\n/gi, "<br/>"); // replace in case of multiline notes
+						html += "</div>";
+					}
 				html += "</div>";
 			html += "</div></div>";
 		}	
