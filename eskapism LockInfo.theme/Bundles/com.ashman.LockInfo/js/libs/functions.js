@@ -267,7 +267,7 @@ function setUpMenu(options){
 						$("#"+currentlyOpenMenuElement).removeClass("selected").find("img").animate({
 							"margin-top" : "4px"
 						},animationSpeed).end().find("div.menu-item-title").fadeOut(animationSpeed, function(){ $(this).remove(); });
-						var menuName = $("#"+currentId).data("menuName");
+						var menuName = $("#"+currentId).attr("menuName");
 						$("#"+currentId).addClass("selected").find("img").animate({
 							"margin-top" : "-10px"
 						},animationSpeed).end().append("<div class='menu-item-title' style='display:none;'>"+menuName+"</div>").find("div.menu-item-title").css({
